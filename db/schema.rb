@@ -10,10 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_191323) do
+ActiveRecord::Schema.define(version: 2019_09_12_174034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "description", limit: 100, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_user_lists", force: :cascade do |t|
+    t.integer "user_list_id", null: false
+    t.bigint "product_id", null: false
+    t.integer "quantity", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id", "user_list_id"], name: "index_product_user_lists_on_product_id_and_user_list_id", unique: true
+    t.index ["product_id"], name: "index_product_user_lists_on_product_id"
+    t.index ["user_list_id"], name: "index_product_user_lists_on_user_list_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.bigint "subcategory_id", null: false
+    t.string "description", limit: 100, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subcategory_id"], name: "index_products_on_subcategory_id"
+  end
+
+  create_table "subcategories", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.string "description", limit: 100, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id", "description"], name: "index_subcategories_on_category_id_and_description", unique: true
+    t.index ["category_id"], name: "index_subcategories_on_category_id"
+  end
+
+  create_table "user_lists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", limit: 100, null: false
+    t.string "notes", limit: 4000
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "name"], name: "index_user_lists_on_user_id_and_name", unique: true
+    t.index ["user_id"], name: "index_user_lists_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +67,14 @@ ActiveRecord::Schema.define(version: 2019_09_11_191323) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", limit: 100
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "product_user_lists", "products"
+  add_foreign_key "product_user_lists", "user_lists"
+  add_foreign_key "products", "subcategories"
+  add_foreign_key "subcategories", "categories"
+  add_foreign_key "user_lists", "users"
 end

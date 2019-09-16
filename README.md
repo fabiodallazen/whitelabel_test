@@ -1,20 +1,24 @@
-# todo_whitelabel_test
-Desafio Todo Cartões
+## REQUIREMENTS
 
-* Ruby version
+*   Ruby 2.6+
+*   Rails 5.2+
+*   ActiveRecord 5.2+
+*   PostgreSQL 9.5+
+*   [PostgreSQL extensions](https://github.com/Casecommons/pg_search/wiki/Installing-PostgreSQL-Extensions) for certain features
 
-* System dependencies
+## INSTALL
 
-* Configuration
+Create database
+```
+$ rake db:create
+```
 
-* Database creation
+Run migrations
+```
+$ rake db:migrate
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Prepare basic information
+```
+$ rails db:seed
+```

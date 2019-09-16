@@ -1,0 +1,45 @@
+<div class="col-xs-12">
+  <% collection.each do |product| %>
+    <div id="product_<%= product.id %>" class="col-md-3 text-center">
+      <figure class="card card-product">
+        <div class="img-wrap">
+          <%= image_tag 'thumb_default.png' %>
+        </div>
+        <figcaption class="info-wrap">
+          <div class="height-2em line-height-tiny font-size-medium"><%= product.description %></div>
+          <div class="height-60 border-radius-bottom">
+
+            <div class="<%= 'hide' unless product.quantity %> form-product-quantity height-60 display-flex align-items-center border overflow-hidden">
+              <%= form_with(url: "/user_lists/remove_product/#{user_list.id}", method: "get", class: 'flex-grow') do %>
+                <%= hidden_field(:product, :id, value: product.id) %>
+                <%= button_tag(type: 'submit', 'data-disable-with': '...', class: 'width-100 button-submit-quantity cursor-pointer padding-vertical') do %>
+                  <i class="glyphicon glyphicon-minus color-not-so-shy"></i>
+                <% end %>
+              <% end %>
+
+              <div class="quantity font-size-medium padding-vertical padding-horizontal-medium border-horizontal color-not-so-shy bold">
+                <%= product.quantity %>
+              </div>
+              <%= form_with(url: "/user_lists/add_product/#{user_list.id}", method: "get", class: 'flex-grow') do %>
+                <%= hidden_field(:product, :id, value: product.id) %>
+                <%= button_tag(type: 'submit', 'data-disable-with': '...', class: 'width-100 button-submit-quantity cursor-pointer padding-vertical') do %>
+                  <i class="glyphicon glyphicon-plus color-not-so-shy"></i>
+                <% end %>
+              <% end %>
+            </div>
+
+            <%= form_with(url: "/user_lists/save_product/#{user_list.id}", method: "get", class: "#{'hide' if product.quantity} form-product-save") do %>
+              <%= hidden_field(:product, :id, value: product.id) %>
+              <%= submit_tag('Adicionar', 'data-disable-with': 'Adicionar', class: 'width-100 display-block padding-vertical btn-primary text-uppercase') %>
+            <% end %>
+
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  <% end %>
+</div>
+
+<div class="text-center col-xs-12">
+  <%= will_paginate collection, renderer: BootstrapPagination::Rails %>
+</div>

@@ -1,0 +1,25 @@
+
+<div class="row">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Nome:</strong>
+    <%= @user_list.name %>
+  </p>
+
+  <p>
+    <strong>Notas:</strong>
+    <%= @user_list.notes %>
+  </p>
+
+  <div class="col-xs-12">
+    <%= link_to 'Escolher Produtos', choose_products_user_lists_path(@user_list) %>
+  </div>
+
+  <div class="col-xs-12">
+    <%= link_to 'Editar', edit_user_list_path(@user_list) %> |
+    <%= link_to 'Voltar', user_lists_path %>
+  </div>
+</div>
+
+<%= render 'list_products', user_list: @user_list, collection: @collection %>

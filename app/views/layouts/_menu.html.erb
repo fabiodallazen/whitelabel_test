@@ -1,0 +1,55 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header padding-vertical">
+      <%= image_tag 'application.png', height: 50 %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+<!--        <li class="active">-->
+        <li class="padding-vertical">
+          <%#= link_to 'Minhas Listas', user_list_path %>
+          <a href="/user_lists">Minhas Listas</a>
+        </li>
+        <li class="padding-vertical">
+          <%= link_to 'Minha Conta', edit_user_registration_path %>
+        </li>
+        <li class="padding-vertical">
+          <%= link_to 'Nova lista', new_user_list_path, class: 'btn btn-lg btn-larger btn-red text-uppercase' %>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li class="item-menu padding-vertical">
+            <%= "#{current_user.name} <#{current_user.email}>" %>
+          </li>
+          <li class="padding-vertical">
+            <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
+          </li>
+        <% else %>
+          <li class="padding-vertical">
+            <%= link_to('Login', new_user_session_path) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<% if notice || alert %>
+  <div class="alert alert-dismissable alert-white tamanho-fonte" role="alert">
+    <button type="button" class="close tamanho-fonte" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Fechar</span>
+    </button>
+
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<%= yield %>
