@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root to: 'home#index'
-  resources :home, only: [:index]
+  root to: 'user_lists#index'
   resources :user_lists do
     collection do
       get 'choose_products/:id', to: 'user_lists#choose_products', as: 'choose_products'

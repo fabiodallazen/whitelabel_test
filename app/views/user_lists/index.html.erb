@@ -1,30 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Minhas Listas</h1>
 
-<h1>Listas</h1>
-
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Notas</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user_lists.each do |user_list| %>
+    <table class="table table-striped table-hover">
+      <thead>
       <tr>
-        <td><%= user_list.name %></td>
-        <td><%= user_list.notes %></td>
-        <td><%= link_to 'Ver Lista', user_list %></td>
-        <td><%= link_to 'Editar Lista', edit_user_list_path(user_list) %></td>
-        <td><%= link_to 'Escolher Produtos', choose_products_user_lists_path(user_list) %></td>
-        <td><%= link_to 'Excluir Lista', user_list, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <th>Nome</th>
+        <th>Notas</th>
+        <th style="width: 50px;"></th>
+        <th style="width: 50px;"></th>
+        <th style="width: 50px;"></th>
+        <th style="width: 50px;"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
 
-<br>
+      <tbody>
+      <% @user_lists.each do |user_list| %>
+        <tr>
+          <td><%= user_list.name %></td>
+          <td><%= user_list.notes %></td>
+          <td>
+            <%= link_to user_list, class: 'btn btn-default' do %>
+              <span class="glyphicon glyphicon-search" aria-hidden="true"> Ver Lista</span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_user_list_path(user_list), class: 'btn btn-default' do %>
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true"> Editar Lista</span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to choose_products_user_lists_path(user_list), class: 'btn btn-info' do %>
+              <span class="glyphicon glyphicon-th-list" aria-hidden="true"> Escolher Produtos</span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to user_list, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-danger' do %>
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"> Excluir Lista</span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'Nova Lista', new_user_list_path %>
+    <br>
+
+    <%= link_to 'Nova Lista', new_user_list_path, class: 'btn btn-primary' %>
+  </div>
+</div>

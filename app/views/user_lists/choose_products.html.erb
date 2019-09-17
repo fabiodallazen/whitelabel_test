@@ -23,13 +23,15 @@
           </li>
         </ul>
 
-        <%= form_with(url: "/user_lists/choose_products/#{@user_list.id}", method: "get", class: 'navbar-form navbar-left', local: true) do %>
-          <div class="form-group">
-            <%= text_field_tag(:q, nil, class: 'form-control', placeholder: 'Digite o produto') %>
-          </div>
-          <%= submit_tag('Buscar Produtos', class: 'btn btn-default') %>
-        <% end %>
-        
+        <ul class="nav navbar-nav topnav-centered">
+          <%= form_with(url: "/user_lists/choose_products/#{@user_list.id}", method: "get", class: 'navbar-form navbar-left', local: true) do %>
+            <div class="form-group">
+              <%= text_field_tag(:q, nil, class: 'form-control', placeholder: 'Pesquisa de produtos') %>
+            </div>
+            <%= submit_tag('Buscar Produtos', class: 'btn btn-default') %>
+          <% end %>
+        </ul>
+
         <ul class="pull-right">
           <li class="list-unstyled padding-top-15">Adicionando à lista <%= link_to @user_list.name, user_list_path(@user_list.id) %> (<span id="quantity_product_user_lists"><%= @user_list.product_user_lists.count %></span> produtos)</li>
         </ul>

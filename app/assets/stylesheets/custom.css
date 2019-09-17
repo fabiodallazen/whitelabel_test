@@ -116,16 +116,6 @@
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
 }
-.btn-primary {
-    color: white;
-    background-color: #991820;
-    border-color: #991820;
-}
-.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
-    color: #FFFFFF !important;
-    background-color: #c51f29 !important;
-    border-color: #e03742 !important;
-}
 .display-block {
     display: block;
 }
@@ -138,12 +128,12 @@
 .line-height-tiny {
     line-height: 18px;
 }
-.btn-red {
+.btn-new-list {
     background-color: #991820 !important;
     color: #FFFFFF;
     text-shadow: 1px 1px #333333;
 }
-.btn-red:hover, .btn-red:active, .btn-red:visited, .btn-red:focus {
+.btn-new-list:hover, .btn-new-list:active, .btn-new-list:visited, .btn-new-list:focus {
     color: #FFFFFF !important;
 }
 .btn:hover, .btn:focus, .btn.focus {
@@ -220,8 +210,53 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-
+#logreg-forms{
+    width:412px;
+    margin:10vh auto;
+    background-color:#f3f3f3;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+#logreg-forms form {
+    width: 100%;
+    max-width: 410px;
+    padding: 15px;
+    margin: auto;
+}
+#logreg-forms .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+#logreg-forms .form-control:focus { z-index: 2; }
+#logreg-forms .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+#logreg-forms .form-signin input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+#logreg-forms a{
+    display: block;
+    padding-top:10px;
+    color:lightseagreen;
+}
+#logreg-form .lines{
+    width:200px;
+    border:1px solid red;
+}
+#logreg-forms button[type="submit"]{ margin-top:10px; }
+#logreg-forms .form-reset, #logreg-forms .form-signup{ display: none; }
+#logreg-forms .form-signup input { margin-bottom: 2px;}
+@media screen and (max-width:500px){
+    #logreg-forms{
+        width:300px;
+    }
+}
 
 /*@media screen and (min-width: 1301px) {*/
 /*    .list-products {*/
@@ -244,4 +279,5 @@
 /*    }*/
 /*}*/
 
+/* import font */
 

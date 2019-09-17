@@ -1,0 +1,16 @@
+<div id="logreg-forms">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, class: 'form-reset') do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+        <%= f.email_field :email, autocomplete: "email", class: 'form-control lowercase', required: true, onkeyup: "this.value = this.value.toLowerCase();", autofocus: true, placeholder: t('.email') %>
+      </div>
+    </div>
+
+    <%= f.submit(t('.send_me_reset_password_instructions'), class: "btn btn-primary btn-block") %>
+
+    <%= render "devise/shared/links" %>
+  <% end %>
+</div>

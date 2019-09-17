@@ -52,7 +52,7 @@ class UserListsController < ApplicationController
 
     respond_to do |format|
       if @user_list.save
-        format.html { redirect_to @user_list, notice: 'User list was successfully created.' }
+        format.html { redirect_to action: :choose_products, id: @user_list.id, notice: 'A lista de usuários foi criada com sucesso.' }
         format.json { render :show, status: :created, location: @user_list }
       else
         format.html { render :new }
@@ -64,7 +64,7 @@ class UserListsController < ApplicationController
   def update
     respond_to do |format|
       if @user_list.update(user_list_params)
-        format.html { redirect_to @user_list, notice: 'User list was successfully updated.' }
+        format.html { redirect_to @user_list, notice: 'A lista de usuários foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @user_list }
       else
         format.html { render :edit }
@@ -76,7 +76,7 @@ class UserListsController < ApplicationController
   def destroy
     @user_list.destroy
     respond_to do |format|
-      format.html { redirect_to user_lists_url, notice: 'User list was successfully destroyed.' }
+      format.html { redirect_to user_lists_url, notice: 'A lista de usuários foi destruída com sucesso.' }
       format.json { head :no_content }
     end
   end

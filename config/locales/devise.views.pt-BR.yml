@@ -38,22 +38,36 @@ pt-BR:
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Enviar instruções para redefinição da senha
+        email: E-mail
     registrations:
       edit:
         are_you_sure: Você tem certeza?
         cancel_my_account: Cancelar minha conta
         currently_waiting_confirmation_for_email: 'No momento esperando por: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: deixe em branco caso não queira alterá-la
-        title: Editar %{resource}
+        title: Editar Usuário
         unhappy: Não está contente
         update: Atualizar
         we_need_your_current_password_to_confirm_your_changes: precisamos da sua senha atual para confirmar suas mudanças
+        name: Nome
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirme sua senha
+        current_password: Senha atual
+        other: "(Mínimo de %{count} caracteres)"
       new:
         sign_up: Inscrever-se
+        name: Nome
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirme sua senha
+        other: "(Mínimo de %{count} caracteres)"
     sessions:
       new:
         sign_in: Entrar
         remember_me: Lembre-se de mim
+        email: E-mail
+        password: Senha
     shared:
       links:
         back: Voltar
@@ -115,8 +129,6 @@ pt-BR:
         bem_vindo: Olá, seja bem-vindo!
         sign_in: Entrar
         remember_me: Lembre-se de mim
-        usuario: usuário
-        senha: senha
     shared:
       links:
         back: Voltar
