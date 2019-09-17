@@ -29,6 +29,10 @@
           </div>
           <%= submit_tag('Buscar Produtos', class: 'btn btn-default') %>
         <% end %>
+        
+        <ul class="pull-right">
+          <li class="list-unstyled padding-top-15">Adicionando à lista <%= link_to @user_list.name, user_list_path(@user_list.id) %> (<span id="quantity_product_user_lists"><%= @user_list.product_user_lists.count %></span> produtos)</li>
+        </ul>
       </div>
     </div>
   </nav>

@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class UserListsController < ApplicationController
-  before_action :set_user_list, only: [:show, :edit, :update, :destroy, :choose_products, :save_product, :add_product, :remove_product]
+  before_action :set_user_list, only: %i[show edit update destroy choose_products save_product add_product remove_product]
 
   def index
     @user_lists = UserList.all
   end
 
   def show
-    products_id = @user_list.product_user_lists.select(:product_id).map(&:product_id)
+    products_id = ProductUserList.where(user_list_id: @user_list.id).select(:product_id).map(&:product_id)
     choose_products(products_id)
   end
 
@@ -16,17 +16,13 @@ class UserListsController < ApplicationController
     @user_list = UserList.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def choose_products(products_id = nil)
     @category_and_subcategories = Category.select(:id, :description).includes(:subcategories)
 
     @collection = Product.get_products(
-      params.slice(:subcategory_id, :q).merge(
-        user_list_id: @user_list.id,
-        products_id: products_id
-      )
+      params.slice(:subcategory_id, :q).merge(user_list_id: @user_list.id, products_id: products_id)
     )
 
     @collection = @collection.paginate(
@@ -37,25 +33,18 @@ class UserListsController < ApplicationController
   end
 
   def save_product
-    product_user_list = @user_list.product_user_lists.create(product_id: params[:product][:id], quantity: 1)
-    @quantity = product_user_list.quantity
+    @quantity = ProductUserList.save(@user_list.id, params[:product][:id], 1)
+    @quantity_product_user_lists = ProductUserList.where(user_list: @user_list).count
   end
 
   def add_product
-    product_user_list = ProductUserList.where(user_list_id: @user_list.id, product_id: params[:product][:id]).first
-    product_user_list.update(quantity: product_user_list.quantity + 1)
-    @quantity = product_user_list.quantity
+    @quantity = ProductUserList.save(@user_list.id, params[:product][:id], 1)
+    @quantity_product_user_lists = ProductUserList.where(user_list: @user_list).count
   end
 
   def remove_product
-    product_user_list = ProductUserList.where(user_list_id: @user_list.id, product_id: params[:product][:id]).first
-    @quantity = product_user_list.quantity - 1
-
-    if @quantity.zero?
-      product_user_list.destroy
-    else
-      product_user_list.update(quantity: @quantity)
-    end
+    @quantity = ProductUserList.save(@user_list.id, params[:product][:id], -1)
+    @quantity_product_user_lists = ProductUserList.where(user_list: @user_list).count
   end
 
   def create
