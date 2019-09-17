@@ -2,6 +2,7 @@
 .env.production
 .env.development
 .idea/*
+.idea/workspace.xml
 vendor/cache
 vendor/importacao/*.csv
 vendor/importacao/*.txt

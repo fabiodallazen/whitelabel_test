@@ -13,6 +13,11 @@ Create database
 $ rails db:create
 ```
 
+Install Gems
+```
+$ bundle install
+```
+
 Run migrations
 ```
 $ rails db:migrate

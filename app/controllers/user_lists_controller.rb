@@ -30,6 +30,8 @@ class UserListsController < ApplicationController
       per_page: 8,
       total_entries: @collection.size
     )
+
+    flash[:notice] = params.delete(:mesage)
   end
 
   def save_product
@@ -52,7 +54,7 @@ class UserListsController < ApplicationController
 
     respond_to do |format|
       if @user_list.save
-        format.html { redirect_to action: :choose_products, id: @user_list.id, notice: 'A lista de usuários foi criada com sucesso.' }
+        format.html { redirect_to action: :choose_products, id: @user_list.id, mesage: 'A lista de usuários foi criada com sucesso.' }
         format.json { render :show, status: :created, location: @user_list }
       else
         format.html { render :new }
