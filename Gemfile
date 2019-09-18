@@ -21,7 +21,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise', '~> 4.5.0'
 gem 'devise-i18n-views', '~> 0.3.7'
-gem 'faker', '~> 2.3.0'
 gem 'jquery-rails', '~> 4.1.1'
 gem 'pg', '~> 1.1.4'
 gem 'pg_search', '~> 1.0.6'
@@ -50,6 +49,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'faker', '~> 2.3.0'
   gem 'rspec-rails', '~> 3.8.0'
   gem 'rubocop', '~> 0.74.0'
   gem 'rubocop-performance', '~> 1.4.1'

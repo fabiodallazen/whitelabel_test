@@ -4,7 +4,7 @@ class UserListsController < ApplicationController
   before_action :set_user_list, only: %i[show edit update destroy choose_products save_product add_product remove_product]
 
   def index
-    @user_lists = UserList.all
+    @user_lists = UserList.where(user: current_user).all
   end
 
   def show
@@ -86,7 +86,7 @@ class UserListsController < ApplicationController
   private
 
   def set_user_list
-    @user_list = UserList.find(params[:id])
+    @user_list = UserList.find_by(user: current_user, id: params[:id])
   end
 
   def user_list_params

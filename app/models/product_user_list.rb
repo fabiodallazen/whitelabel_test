@@ -5,7 +5,7 @@ class ProductUserList < ApplicationRecord
   belongs_to :product
 
   validates :user_list_id, :product_id, :quantity, presence: true
-  validates :quantity, numericality: { greater_than_or_equal_to: 1 }
+  validates :quantity, numericality: { greater_than: 0 }
   validates :product_id, uniqueness: { scope: [:product_id, :user_list_id], message: '%{value} já está em uso.' }
 
   class << self
