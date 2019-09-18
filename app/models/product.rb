@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   belongs_to :subcategory
   has_many :product_user_lists
 
-  pg_search_scope :search_for, against: :description
+  pg_search_scope(:search_for, against: :description, using: [:trigram])
 
   class << self
     def get_products(options = {})

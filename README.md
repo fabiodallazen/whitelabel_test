@@ -4,18 +4,17 @@
 *   Rails 5.2+
 *   ActiveRecord 5.2+
 *   PostgreSQL 9.5+
-*   [PostgreSQL extensions](https://github.com/Casecommons/pg_search/wiki/Installing-PostgreSQL-Extensions) for certain features
 
 ## INSTALL
-
-Create database
-```
-$ rails db:create
-```
 
 Install Gems
 ```
 $ bundle install
+```
+
+Create database
+```
+$ rails db:create
 ```
 
 Run migrations
