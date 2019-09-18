@@ -2,13 +2,15 @@ require 'rails_helper'
 
 RSpec.describe ProductUserList, type: :model do
   it "is invalid if the quantity is not greater than 0" do
-    user = User.create!(email: 'teste@teste.com', name: 'Teste', password: '123456789')
-    user_list = UserList.create(user: user, name: 'teste')
+    user = User.create!(email: FFaker::Internet.email, name: FFaker::Name.first_name, password: FFaker::Internet.password)
+    user_list = UserList.create(user: user, name: FFaker::Lorem.word)
 
-    category = Category.create!(description: 'Utilidades do Lar')
-    subcategory = Subcategory.create!(category: category, description: 'description')
-    product = Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name)
+    category = Category.create!(description: FFaker::Lorem.word)
+    subcategory = Subcategory.create!(category: category, description: FFaker::Lorem.word)
+    product = Product.create!(subcategory: subcategory, description: FFaker::Product.brand)
 
-    expect(ProductUserList.create(user_list: user_list, product: product, quantity: 0)).not_to be_valid
+    product_user_list = ProductUserList.new(user_list: user_list, product: product, quantity: FFaker::Random.rand(-100..0))
+    
+    expect(product_user_list).not_to be_valid
   end
 end

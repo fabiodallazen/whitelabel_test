@@ -14,56 +14,56 @@ category = Category.create!(description: 'Utilidades do Lar')
 
 description = 'Decoração'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
 
 description = 'Cutelaria'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
 
 description = 'Forno e Fogão'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
 
 description = 'Copa e Cozinha'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
 
 description = 'Lavanderia e Banheiro'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
 
 description = 'Mesa e Bar'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
 
 category = Category.create!(description: 'Cama, Mesa e Banho')
 
 description = 'Decoração'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
 
 description = 'Cama'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
 
 description = 'Banho'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
 
 description = 'Mesa'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
 
 category = Category.create!(description: 'Lingerie')
 
 description = 'Lingerie Noite'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
 
 description = 'Lingerie Dia'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
 
 description = 'Marca de terceiros'
 subcategory = Subcategory.find_by(category: category, description: description) || Subcategory.create!(category: category, description: description)
-rand(100).times.each { Product.create!(subcategory: subcategory, description: Faker::Commerce.product_name) }
+rand(100).times.each { Product.create!(subcategory: subcategory, description: FFaker::Product.brand) }
