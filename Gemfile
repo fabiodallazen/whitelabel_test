@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 gem 'bootstrap-sass', '~> 3.3.7'
-gem 'devise', '~> 4.5.0'
+gem 'devise', '~> 4.7.1'
 gem 'devise-i18n-views', '~> 0.3.7'
 gem 'jquery-rails', '~> 4.1.1'
 gem 'pg', '~> 1.1.4'
